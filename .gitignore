@@ -1,0 +1,55 @@
+# python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+
+# virtual environments
+.env
+.venv
+venv/
+env/
+ENV/
+
+# environment variables
+.env.*
+!.env.example
+
+# package / build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# caches & tooling
+.pytest_cache/
+.mypy_cache/
+.pytype/
+.pyre/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# fastapi / web
+*.log
+*.sqlite3
+instance/
+
+# jupyter
+.ipynb_checkpoints/
+
+# editor / IDE
+.vscode/
+.idea/
+*.swp
+main.code-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# misc
+*.tmp
+*.bak
+
+# throwaway scripts
+temp/
