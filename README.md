@@ -25,6 +25,21 @@ The goal of this repository is **learning and reinforcement**, not production-re
 This repository should be viewed as a **learning notebook**, not a portfolio.
 
 
+## Repository Structure
+
+- `concepts/`  
+  Core Python concepts explored in isolation  
+  (e.g. data structures, OOP patterns, concurrency basics)
+
+- `libraries/`  
+  Experiments and notes on specific Python libraries  
+  (e.g. numpy, pandas, requests, asyncio)
+
+- `frameworks/`  
+  Mini-projects and explorations of full frameworks  
+  (e.g. Flask, Django, FastAPI)
+
+
 ## Tutorials & Credits
 
 Where applicable, inspiration or structure comes from:
@@ -36,6 +51,13 @@ All tutorial-based projects are:
 - Clearly labeled
 - Used for educational purposes only
 - Extended or modified for personal understanding
+
+
+## How I Use This Repo
+
+- I add folders as I start learning something new
+- I revisit old code to refactor it once my understanding improves
+- Some folders represent dead ends — they are kept intentionally
 
 
 ## This Repo Is NOT

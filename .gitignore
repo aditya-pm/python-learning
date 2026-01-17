@@ -28,6 +28,7 @@ dist/
 .ruff_cache/
 .coverage
 htmlcov/
+.python-version
 
 # fastapi / web
 *.log
