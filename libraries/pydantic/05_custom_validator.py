@@ -25,6 +25,8 @@ class User(BaseModel):
     # this example does validation (checking if alphanumeric) and normalization
     # (converting to lowercase)
     # NOTE: this validator runs AFTER pydantic runs its own type validators
+    # requires to be a classmethod because the class is not instantiated at the
+    # time of the validation (self does not exist)
     @field_validator("username")
     @classmethod
     def validate_username(cls, v: str) -> str:
@@ -58,7 +60,7 @@ class User(BaseModel):
 # model validators take the entire model/instance (self) and we can access
 # attributes via the instance (e.g.: self.password)
 # model_validator runs after all the fields are validated by pydantic
-# does not require @classmethod (WHY? research later)
+# does not require @classmethod (the instance is already created, hence self exists)
 class UserRegistration(BaseModel):
     email: EmailStr
     password: str
