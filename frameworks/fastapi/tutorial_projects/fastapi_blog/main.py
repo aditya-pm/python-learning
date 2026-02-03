@@ -1,8 +1,12 @@
-from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
+from fastapi import FastAPI, Request
+from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
+# creation of `templates` object that knows to look for templates in the `templates` directory
+templates = Jinja2Templates(
+    directory="frameworks/fastapi/tutorial_projects/fastapi_blog/templates"
+)
 
 posts: list[dict] = [
     {
@@ -22,12 +26,12 @@ posts: list[dict] = [
 ]
 
 
-# exclude HTML endpoints (which are meant for the user) from API documentation
 # stack decorator for same functionality for multiple endpoints
-@app.get("/", response_class=HTMLResponse, include_in_schema=False)
-@app.get("/posts", response_class=HTMLResponse, include_in_schema=False)
-def home():
-    return f"<h1>{posts[0]['title']}</h1>"
+@app.get("/", include_in_schema=False)
+@app.get("/posts", include_in_schema=False)
+def home(request: Request):
+    # third parameter is the context dictionary, which holds all variables
+    return templates.TemplateResponse(request, "home.html", {"posts": posts})
 
 
 @app.get("/api/posts")

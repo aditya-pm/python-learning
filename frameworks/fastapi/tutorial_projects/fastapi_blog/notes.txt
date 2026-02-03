@@ -1,0 +1,8 @@
+- Returning raw python strings as HTML strings would be too difficult for large HTML pages
+  especially when dynamic data is involved, so we instead template the HTML page (using Jinja)
+  and pass in the dynamic data
+- we separately maintain API routes and HTML routes, that serve the same data for different 
+  audiences
+- jinja is installed usually with standard fastapi install, if not use pip install jinja2
+- fastapi.templating has Jinja2Templates which is required for template, it this requires fastapi.Request
+- 
