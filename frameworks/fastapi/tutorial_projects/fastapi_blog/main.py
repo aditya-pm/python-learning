@@ -1,7 +1,14 @@
 from fastapi import FastAPI, Request
+from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
+
+app.mount(
+    "/static",
+    StaticFiles(directory="frameworks/fastapi/tutorial_projects/fastapi_blog/static"),
+    name="static",
+)
 
 # creation of `templates` object that knows to look for templates in the `templates` directory
 templates = Jinja2Templates(
@@ -31,7 +38,9 @@ posts: list[dict] = [
 @app.get("/posts", include_in_schema=False)
 def home(request: Request):
     # third parameter is the context dictionary, which holds all variables
-    return templates.TemplateResponse(request, "home.html", {"posts": posts})
+    return templates.TemplateResponse(
+        request, "home.html", {"posts": posts, "title": "Home"}
+    )
 
 
 @app.get("/api/posts")
