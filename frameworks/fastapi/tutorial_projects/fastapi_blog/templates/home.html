@@ -8,8 +8,10 @@
 </head>
 
 <body>
-    <h1>Hello there</h1>
-    <p>I am a paragraph</p>
+    <h1>Home Page</h1>
+    {% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    {% endfor %}
 </body>
 
 </html>
